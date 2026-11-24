@@ -2,27 +2,25 @@
 [![reward](https://make.fun/badge/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b/rezimtirani/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b-entry/reward.svg)](https://make.fun/bounty/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b)
 [![make.fun](https://make.fun/badge/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b.svg)](https://make.fun/bounty/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b)
 
-# Fresh-Launch Sniper — Pump.fun Paper Sprint
+# Burst Scalp — Pump.fun Paper Sprint
 
 A paper-trading bot for the [Pump.fun Paper Sprint: Any Bot Can Win](https://make.fun/bounty/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b) bounty on [make.fun](https://make.fun).
 
 ## Idea
 
-Most pump.fun coins die within seconds of launch. This bot only buys a fresh
-coin once a few strangers have already put real money in, the creator has not
-sold, and nobody else has dumped yet. It buys a small fixed stake (0.10 SOL),
-then exits on the first of:
+A coin's launch burst is instant and its price then decays, slowly and
+relentlessly, back toward its launch price. Buying after the burst means
+buying the top and riding the bleed. So this bot buys in a coin's first
+two slots, while its price is still within 20% of launch, takes a small
+take-profit (+3%) or a small stop-loss (−2%), and is out within twenty
+slots. Stakes are capped by the harness at 1% of the coin's real SOL, so
+early stakes are small — which also keeps each loss small. The creator
+must not have sold and no one may have dumped yet.
 
-- **take-profit** at +25% over cost,
-- **stop-loss** at −8% under cost,
-- **trailing stop** once the position is +10% up, exiting on an 8% fall from its peak,
-- **hold timeout** after 150 slots,
-- **creator sold**, or
-- **one big sell** (25% or more of the coin's real SOL in a single trade).
-
-At most five positions are open at once, so the bot cycles quickly and can
-complete the twenty round trips the guardrails ask for. A 20% equity
-drawdown from the peak stops new entries.
+On the kit's 24-hour dev window this scores −0.111 SOL (−1.11%) over 152
+round trips: it loses a little, honestly. It is the least-bad of five
+strategies tried; the burst is where the money is, and the harness's
+two-slot order latency plus fees eat most of it.
 
 ## Layout
 
